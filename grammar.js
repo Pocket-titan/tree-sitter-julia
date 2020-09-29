@@ -221,9 +221,9 @@ grammar({
     spread_parameter: $ => seq($.identifier, '...'),
 
     typed_parameter: $ => seq(
-      $.identifier,
+      field('parameter', $.identifier),
       '::',
-      choice($.identifier, $.parameterized_identifier)
+      field('type', choice($.identifier, $.parameterized_identifier))
     ),
 
     type_parameter_list: $ => seq(
@@ -414,6 +414,7 @@ grammar({
       $.string,
       $.command_string,
       $.character,
+      $.constant,
       $.triple_string,
       $.array_expression,
       $.array_comprehension_expression,
@@ -809,6 +810,13 @@ grammar({
       choice(/\\./, /[^'\\]/),
       "'",
     )),
+
+    constant: $ => choice(
+      "true",
+      "false",
+      "nothing",
+      "missing"
+    ),
 
     _power_operator: $ => token(addDots(POWER_OPERATORS)),
 

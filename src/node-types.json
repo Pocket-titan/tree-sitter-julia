@@ -78,6 +78,10 @@
         "named": true
       },
       {
+        "type": "constant",
+        "named": true
+      },
+      {
         "type": "field_expression",
         "named": true
       },
@@ -404,6 +408,10 @@
           "named": true
         },
         {
+          "type": "constant",
+          "named": true
+        },
+        {
           "type": "do_clause",
           "named": true
         },
@@ -488,6 +496,10 @@
         },
         {
           "type": "command_string",
+          "named": true
+        },
+        {
+          "type": "constant",
           "named": true
         },
         {
@@ -624,6 +636,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "constant",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "constrained_parameter",
@@ -776,6 +793,10 @@
         },
         {
           "type": "command_string",
+          "named": true
+        },
+        {
+          "type": "constant",
           "named": true
         },
         {
@@ -1889,20 +1910,31 @@
   {
     "type": "typed_parameter",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "parameterized_identifier",
-          "named": true
-        }
-      ]
+    "fields": {
+      "parameter": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "parameterized_identifier",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -2130,6 +2162,10 @@
     "named": false
   },
   {
+    "type": "false",
+    "named": false
+  },
+  {
     "type": "finally",
     "named": false
   },
@@ -2170,11 +2206,19 @@
     "named": false
   },
   {
+    "type": "missing",
+    "named": false
+  },
+  {
     "type": "module",
     "named": false
   },
   {
     "type": "mutable",
+    "named": false
+  },
+  {
+    "type": "nothing",
     "named": false
   },
   {
@@ -2200,6 +2244,10 @@
   {
     "type": "triple_string",
     "named": true
+  },
+  {
+    "type": "true",
+    "named": false
   },
   {
     "type": "try",
